@@ -16,8 +16,8 @@ TOKEN = os.environ.get("SANWAL_TOKEN", "")
 def replace_chunk(content, marker, chunk, inline=False):
     print("Content")
     print(content)
-    print("Marker")
-    print(marker)
+    print("chunk")
+    print(chunk)
     r = re.compile(
         r"<!\-\- {} starts \-\->.*<!\-\- {} ends \-\->".format(marker, marker),
         re.DOTALL,
@@ -25,6 +25,8 @@ def replace_chunk(content, marker, chunk, inline=False):
     if not inline:
         chunk = "\n{}\n".format(chunk)
     chunk = "<!-- {} starts -->{}<!-- {} ends -->".format(marker, chunk, marker)
+    print("Chunk + Content")
+    print(r.sub(chunk, content))
     return r.sub(chunk, content)
 
 
