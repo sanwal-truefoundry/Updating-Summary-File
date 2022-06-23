@@ -26,9 +26,8 @@ def replace_chunk(content, marker, chunk, inline=False):
         chunk = "\n{}\n".format(chunk)
     chunk = "<!-- {} starts -->{}<!-- {} ends -->".format(marker, chunk, marker)
     print("Chunk + Content")
-    print(r.sub(chunk, content))
-    return r.sub(chunk, content)
-
+    print(r.sub(content, chunk))
+    return r.sub(content, chunk)
 
 organization_graphql = """
   organization(login: "dogsheep") {
