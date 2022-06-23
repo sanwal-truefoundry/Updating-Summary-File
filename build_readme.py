@@ -11,7 +11,6 @@ client = GraphqlClient(endpoint="https://api.github.com/graphql")
 
 
 TOKEN = os.environ.get("SANWAL_TOKEN", "")
-print(TOKEN)
 
 
 def replace_chunk(content, marker, chunk, inline=False):
@@ -157,7 +156,6 @@ if __name__ == "__main__":
     readme = root / "README.md"
     project_releases = root / "releases.md"
     releases = fetch_releases(TOKEN)
-    print(releases)
     releases.sort(key=lambda r: r["published_at"], reverse=True)
     md = "\n\n".join(
         [
@@ -168,7 +166,7 @@ if __name__ == "__main__":
     readme_contents = readme.open().read()
     print(readme_contents)
     rewritten = replace_chunk(readme_contents, "recent_releases", md)
-
+    print(rewritten)
     # Write out full project-releases.md file
     project_releases_md = "\n".join(
         [
