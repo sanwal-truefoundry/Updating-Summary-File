@@ -98,7 +98,6 @@ def fetch_releases(oauth_token):
         )
         first = False
         print()
-        print(json.dumps(data, indent=4))
         print()
         repo_nodes = data["data"]["viewer"]["repositories"]["nodes"]
         if "organization" in data["data"]:
