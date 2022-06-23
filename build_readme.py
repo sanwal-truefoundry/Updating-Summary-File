@@ -29,6 +29,8 @@ def replace_chunk(content, marker, chunk, inline=False):
     chunk = "<!-- {} starts -->{}<!-- {} ends -->".format(marker, chunk, marker)
     print("Chunk + Content")
     print(chunk)
+    print("content")
+    print(content)
     print(r.sub(content, chunk))
     return r.sub(content, chunk)
 
