@@ -217,6 +217,8 @@ if __name__ == "__main__":
             for til in tils
         ]
     )
+    print("Tils_md")
+    print(tils_md)
     rewritten = replace_chunk(rewritten, "tils", tils_md)
 
     entries = fetch_blog_entries()[:6]
