@@ -31,7 +31,7 @@ def replace_chunk(content, marker, chunk, inline=False):
     print(chunk)
     print("content")
     print(content)
-    print(r.sub(content, chunk))
+    print(re.sub(content, chunk))
     return r.sub(content, chunk)
 
 organization_graphql = """
