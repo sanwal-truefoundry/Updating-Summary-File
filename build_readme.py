@@ -165,6 +165,7 @@ if __name__ == "__main__":
         ]
     )
     readme_contents = readme.open().read()
+    print(readme_contents)
     rewritten = replace_chunk(readme_contents, "recent_releases", md)
 
     # Write out full project-releases.md file
@@ -218,5 +219,5 @@ if __name__ == "__main__":
         ["[{title}]({url}) - {published}".format(**entry) for entry in entries]
     )
     rewritten = replace_chunk(rewritten, "blog", entries_md)
-
+    print(rewritten)
     readme.open("w").write(rewritten)
