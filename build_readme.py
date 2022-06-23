@@ -127,7 +127,7 @@ def fetch_releases(oauth_token):
             "hasNextPage"
         ]
         after_cursor = data["data"]["viewer"]["repositories"]["pageInfo"]["endCursor"]
-        print(releases)
+    print(releases)
     return releases
 
 
