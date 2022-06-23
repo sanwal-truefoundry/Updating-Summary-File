@@ -22,10 +22,13 @@ def replace_chunk(content, marker, chunk, inline=False):
         r"<!\-\- {} starts \-\->.*<!\-\- {} ends \-\->".format(marker, marker),
         re.DOTALL,
     )
+    print("r")
+    print(r)
     if not inline:
         chunk = "\n{}\n".format(chunk)
     chunk = "<!-- {} starts -->{}<!-- {} ends -->".format(marker, chunk, marker)
     print("Chunk + Content")
+    print(chunk)
     print(r.sub(content, chunk))
     return r.sub(content, chunk)
 
