@@ -14,7 +14,9 @@ TOKEN = os.environ.get("SANWAL_TOKEN", "")
 
 
 def replace_chunk(content, marker, chunk, inline=False):
+    print("Content")
     print(content)
+    print("Marker")
     print(marker)
     r = re.compile(
         r"<!\-\- {} starts \-\->.*<!\-\- {} ends \-\->".format(marker, marker),
@@ -166,9 +168,9 @@ if __name__ == "__main__":
         ]
     )
     readme_contents = readme.open().read()
-    print(readme_contents)
+    print("Readme_Contents -" + readme_contents)
     rewritten = replace_chunk(readme_contents, "recent_releases", md)
-    print(rewritten)
+    print("Rewritten 1-" + rewritten)
     # Write out full project-releases.md file
     project_releases_md = "\n".join(
         [
@@ -220,5 +222,5 @@ if __name__ == "__main__":
         ["[{title}]({url}) - {published}".format(**entry) for entry in entries]
     )
     rewritten = replace_chunk(rewritten, "blog", entries_md)
-    print(rewritten)
+    print("Rewritten 2-" + rewritten)
     readme.open("w").write(rewritten)
