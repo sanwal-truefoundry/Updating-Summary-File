@@ -220,11 +220,12 @@ if __name__ == "__main__":
     print("Tils_md")
     print(tils_md)
     rewritten = replace_chunk(rewritten, "tils", tils_md)
+    print("Rewritten 2-" + rewritten)
 
     entries = fetch_blog_entries()[:6]
     entries_md = "\n\n".join(
         ["[{title}]({url}) - {published}".format(**entry) for entry in entries]
     )
     rewritten = replace_chunk(rewritten, "blog", entries_md)
-    print("Rewritten 2-" + rewritten)
+    print("Rewritten 3-" + rewritten)
     readme.open("w").write(rewritten)
