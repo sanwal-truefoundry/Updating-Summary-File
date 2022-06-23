@@ -202,6 +202,8 @@ if __name__ == "__main__":
         inline=True,
     )
     project_releases.open("w").write(project_releases_content)
+    print("Project Releases")
+    print(project_releases)
 
     tils = fetch_tils()
     tils_md = "\n\n".join(
