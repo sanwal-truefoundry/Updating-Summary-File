@@ -11,6 +11,7 @@ client = GraphqlClient(endpoint="https://api.github.com/graphql")
 
 
 TOKEN = os.environ.get("SANWAL_TOKEN", "")
+print(TOKEN)
 
 
 def replace_chunk(content, marker, chunk, inline=False):
@@ -126,7 +127,6 @@ def fetch_releases(oauth_token):
             "hasNextPage"
         ]
         after_cursor = data["data"]["viewer"]["repositories"]["pageInfo"]["endCursor"]
-        print(releases)
     return releases
 
 
@@ -157,6 +157,7 @@ if __name__ == "__main__":
     readme = root / "README.md"
     project_releases = root / "releases.md"
     releases = fetch_releases(TOKEN)
+    print(releases)
     releases.sort(key=lambda r: r["published_at"], reverse=True)
     md = "\n\n".join(
         [
