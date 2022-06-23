@@ -31,8 +31,8 @@ def replace_chunk(content, marker, chunk, inline=False):
     print(chunk)
     print("content")
     print(content)
-    print(re.sub(content, chunk))
-    return r.sub(content, chunk)
+    print(r.replace(content, chunk))
+    return r.replace(content, chunk)
 
 organization_graphql = """
   organization(login: "dogsheep") {
